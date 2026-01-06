@@ -119,3 +119,12 @@ If you prefer not to use Docker:
 - Responsive design with Bootstrap
 
 _Note: In about.php in this [line](https://github.com/winston-dsouza/Planet-Shopify-ecommerce-website/blob/master/about.php#L71) enter your email_ and activate the form
+
+<img width="1396" height="699" alt="Screenshot 2026-01-06 at 15 13 08" src="https://github.com/user-attachments/assets/0c1ec783-3b29-4a55-b261-fb11968ea0b6" />
+<img width="1401" height="524" alt="Screenshot 2026-01-06 at 15 13 19" src="https://github.com/user-attachments/assets/f54ced6c-df71-4b8a-8bd5-a1d0d71c09b0" />
+<img width="1376" height="517" alt="Screenshot 2026-01-06 at 15 13 41" src="https://github.com/user-attachments/assets/3ad790b4-2b9e-4513-9a95-1059bfe4648f" />
+<img width="1359" height="673" alt="Screenshot 2026-01-06 at 15 13 54" src="https://github.com/user-attachments/assets/8a006e81-ddca-4253-b8cc-d6ecda9e06e6" />
+
+
+
+
