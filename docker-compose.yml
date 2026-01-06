@@ -1,0 +1,53 @@
+services:
+  # MySQL Database Service
+  db:
+    image: mysql:8.0
+    container_name: ecommerce_db_winston
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ecommerce_db_winston
+      MYSQL_USER: ecommerce_user
+      MYSQL_PASSWORD: ecommerce_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./ecommerce.sql:/docker-entrypoint-initdb.d/ecommerce.sql
+    networks:
+      - ecommerce_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # PHP Apache Web Server
+  web:
+    image: php:8.1-apache
+    container_name: ecommerce_web_winston
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - ecommerce_network
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=ecommerce_db_winston
+    command: >
+      bash -c "docker-php-ext-install mysqli pdo pdo_mysql
+      && apache2-foreground"
+
+networks:
+  ecommerce_network:
+    driver: bridge
+
+volumes:
+  db_data:
